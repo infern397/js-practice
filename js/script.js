@@ -24,3 +24,21 @@ const movieDB = {
     ]
 };
 
+document.querySelectorAll(".promo__adv img").forEach(adv => adv.remove());
+
+
+
+document.querySelector(".promo__genre").textContent = "драма";
+document.querySelector(".promo__bg").style.backgroundImage = 'url("img/bg.jpg")';
+
+const movieList = document.querySelector(".promo__interactive-list");
+movieList.innerHTML = "";
+
+
+movieDB.movies.sort().forEach((movieName, movieIndex) => {
+    movieList.innerHTML += `
+        <li class="promo__interactive-item">
+        ${movieIndex + 1}. ${movieName}
+        <div class="delete"></div>
+        </li>`
+})
